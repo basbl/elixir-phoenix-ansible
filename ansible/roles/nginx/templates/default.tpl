@@ -1,3 +1,8 @@
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
 upstream my_app {
     server 127.0.0.1:4000;
 }
@@ -17,5 +22,9 @@ server{
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_redirect off;
         proxy_pass http://my_app;
+
+        # WebSocket proxying - from http://nginx.org/en/docs/http/websocket.html
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
     }
 }
