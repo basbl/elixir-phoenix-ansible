@@ -1,0 +1,13 @@
+---
+server:
+  timezone: Europe/Amsterdam
+  cli_user: vagrant
+  http_user: www-data
+
+nginx:
+  docroot: '{{ application.root }}/{{ application.public_html }}'
+  servername: '{{ application.domains.nl }} www.{{ application.domains.nl }} {{ application.domains.de }} www.{{ application.domains.de }} {{ application.domains.en }} www.{{ application.domains.en }}'
+  hostname: '{{ server.hostname }}'
+  ssl: true
+  basicauth:
+    enabled: false
