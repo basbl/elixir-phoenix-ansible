@@ -10,10 +10,10 @@ ENV['ANSIBLE_ROLES_PATH'] = "ansible/vendor/roles"
 Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = "elixir-phoenix.dev.enrise.net"
+        v.name = "elixir-phoenix.dev.basbloembergen.nl"
         v.customize [
             "modifyvm", :id,
-            "--name", "elixir-phoenix.dev.enrise.net",
+            "--name", "elixir-phoenix.dev.basbloembergen.nl",
             "--memory", 2048,
             "--natdnshostresolver1", "on",
             "--cpus", 2,
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/xenial64"
 
     config.vm.network :private_network, ip: "192.168.56.137"
-    config.vm.hostname = "elixir-phoenix.dev.enrise.net"
+    config.vm.hostname = "elixir-phoenix.dev.basbloembergen.nl"
 
     if Vagrant.has_plugin?("vagrant-hostsupdater")
         config.hostsupdater.aliases = [
