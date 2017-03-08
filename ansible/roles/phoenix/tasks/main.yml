@@ -31,6 +31,6 @@
 - name: install phoenix
   become_user: ubuntu
   become: yes
-  shell: mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
+  shell: mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez --force
   args:
-    creates: /home/vagrant/.mix/archives/phoenix_new.ez
+    creates: /home/vagrant/.mix/archives/phx_new.ez
